@@ -1,4 +1,5 @@
 Summary:	Genius advanced calculator
+Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
 Version:	0.4.2
 Release:	2
@@ -22,6 +23,9 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 Genius is an advanced calculator and a mathematical programming language.
 It handles multiple precision floating point numbers, infinite precision
 integers, complex numbers and matrixes.
+
+%description -l pl
+Genius jest zaawansowanym kalkulatorem i jêzykiem programowania matematycznego.
 
 %prep
 %setup -q
