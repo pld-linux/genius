@@ -6,6 +6,13 @@ Copyright:	GPL
 Group:		X11/Applications
 Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
 URL:		http://www.5z.com/jirka/linux.html#genius
+BuildPrereq:	gmp-devel
+BuildPrereq:	gnome-libs-devel
+BuildPrereq:	gtk+-devel
+BuildPrereq:	imlib-devel
+BuildPrereq:	ncurses-devel
+BuildPrereq:	readline-devel
+BuildPrereq:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -55,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 * Fri May  7 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.4.1-1]
 - changed install prefix to /usr/X11R6,
+- added BuildPrereq rules,
+- added gzipping %doc,
 - removed COPYING from %doc (copyright statment is in Copyright field),
 
 * Tue Apr 20 1999 Erik Walthinsen <omega@cse.ogi.edu>
