@@ -49,7 +49,7 @@ export CFLAGS LDFLAGS
 	--enable-gnome \
 	--disable-static \
 	--without-included-gettext
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
