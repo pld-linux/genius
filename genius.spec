@@ -1,12 +1,12 @@
 Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
-Version:	0.5.3
+Version:	0.5.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
+# Source0-md5:	3e807bee409c82c38b13b81b8039c15b
 Source0:	http://ftp.gnome.org/pub/gnome/sources/genius/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	a3abcebbbe124ae680475bae84c4c590
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-termcap.patch
 BuildRequires:	autoconf
