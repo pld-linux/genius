@@ -2,7 +2,7 @@ Summary:	Genius advanced calculator
 Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
 Version:	0.4.6
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
