@@ -6,7 +6,7 @@ Release:	3
 License:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
-Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
+Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
 Patch0:		genius-applnk.patch
 Patch1:		genius-termlib.patch
 URL:		http://www.5z.com/jirka/genius.html
@@ -23,15 +23,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-Genius is an advanced calculator and a mathematical programming language.
-It handles multiple precision floating point numbers, infinite precision
-integers, complex numbers and matrixes.
+Genius is an advanced calculator and a mathematical programming
+language. It handles multiple precision floating point numbers,
+infinite precision integers, complex numbers and matrixes.
 
 %description -l pl
 Genius jest zaawansowanym kalkulatorem i jêzykiem programowania
-matematycznego. Mozna go uzyæ do obliczeñ wykorzystuj±cych liczby 
-zmiennoprzecinkowe, liczby ca³kowite o nieskoñczonej precyzji, liczby zespolone
-oraz matryce.
+matematycznego. Mozna go uzyæ do obliczeñ wykorzystuj±cych liczby
+zmiennoprzecinkowe, liczby ca³kowite o nieskoñczonej precyzji, liczby
+zespolone oraz matryce.
 
 %prep
 %setup -q
