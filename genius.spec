@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/genius/0.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	a3abcebbbe124ae680475bae84c4c590
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-termcap.patch
 BuildRequires:	autoconf
