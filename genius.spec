@@ -1,21 +1,23 @@
 Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
-Version:	0.7.1
-Release:	3
+Version:	0.7.2
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	f6595351975739225727c0f8e0e8fb72
+# Source0-md5:	69944ec93ad62cc4c3dc4ba35d4c2944
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-termcap.patch
 Patch2:		%{name}-locale-names.patch
 Patch3:		%{name}-desktop.patch
+Patch4:		%{name}-term_mpfr_fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gmp-devel
+BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtksourceview-devel >= 0.3.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libglade2-devel >= 2.0.1
@@ -23,8 +25,10 @@ BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	popt-devel
+BuildRequires:	scrollkeeper
 BuildRequires:	vte-devel >= 0.8.19
 Requires(post,postun):	/sbin/ldconfig
+Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Obsoletes:	drgenius
 Obsoletes:	drgeo
@@ -62,11 +66,14 @@ Pliki nag³ówkowe genius.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mv po/{no,nb}.po
 
 %build
 rm -f missing acinclude.m4
+gnome-doc-common
+cp xmldocs.make help
 %{__libtoolize}
 glib-gettextize --copy --force
 intltoolize --copy --force
@@ -94,10 +101,12 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/mime/{XMLnamespaces,globs,magic}
 
 %post
 /sbin/ldconfig
+/usr/bin/scrollkeeper-update
 update-mime-database %{_datadir}/mime
 
 %postun
 /sbin/ldconfig
+/usr/bin/scrollkeeper-update
 update-mime-database %{_datadir}/mime
 
 %clean
@@ -116,6 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/*
 %{_datadir}/mime/text/*
 %{_desktopdir}/*.desktop
+%{_iconsdir}/*/*/apps/*.png
+%{_omf_dest_dir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
