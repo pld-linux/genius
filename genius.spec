@@ -2,9 +2,10 @@ Summary:	Genius advanced calculator
 Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
 Version:	0.4.6
-Release:	1
-Copyright:	GPL
+Release:	2
+License:	GPL
 Group:		X11/Applications
+Group(pl):	X11/Aplikacje
 Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
 Patch0:		genius-applnk.patch
 Patch1:		genius-termlib.patch
@@ -29,7 +30,8 @@ It handles multiple precision floating point numbers, infinite precision
 integers, complex numbers and matrixes.
 
 %description -l pl
-Genius jest zaawansowanym kalkulatorem i jêzykiem programowania matematycznego.
+Genius jest zaawansowanym kalkulatorem i jêzykiem programowania
+matematycznego.
 
 %prep
 %setup -q
