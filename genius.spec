@@ -6,13 +6,13 @@ Copyright:	GPL
 Group:		X11/Applications
 Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
 URL:		http://www.5z.com/jirka/linux.html#genius
-BuildPrereq:	gmp-devel
-BuildPrereq:	gnome-libs-devel
-BuildPrereq:	gtk+-devel
-BuildPrereq:	imlib-devel
-BuildPrereq:	ncurses-devel
-BuildPrereq:	readline-devel
-BuildPrereq:	XFree86-devel
+BuildRequires:	gmp-devel
+BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel
+BuildRequires:	imlib-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	readline-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix	/usr/X11R6
