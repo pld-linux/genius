@@ -61,7 +61,7 @@ intltoolize --copy --force
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-static	
+	--disable-static
 %{__make}
 
 %install
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-	
+
 %find_lang %{name} --with-gnome --all-name
 
 %post -p /sbin/ldconfig
