@@ -1,0 +1,25 @@
+diff -Nru genius-0.5.2.orig/configure.in genius-0.5.2/configure.in
+--- genius-0.5.2.orig/configure.in	Mon Feb 10 17:47:44 2003
++++ genius-0.5.2/configure.in	Wed Feb 12 10:11:38 2003
+@@ -44,8 +44,8 @@
+ AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
+ 
+ dnl Check for termcap
+-AC_CHECK_LIB(termcap, tgetent,[TERMCAP_LIB="-ltermcap"],
+-	     AC_MSG_ERROR(Termcap library not found))
++AC_CHECK_LIB(tinfo, tgetent,[TERMCAP_LIB="-ltinfo"],
++     AC_MSG_ERROR(Termcap library not found))
+ AC_SUBST(TERMCAP_LIB)
+ 
+ dnl Check for readline
+diff -Nru genius-0.5.2.orig/src/Makefile.am genius-0.5.2/src/Makefile.am
+--- genius-0.5.2.orig/src/Makefile.am	Mon Feb 10 18:06:49 2003
++++ genius-0.5.2/src/Makefile.am	Wed Feb 12 10:17:22 2003
+@@ -9,6 +9,7 @@
+ YFLAGS += -d -t
+ 
+ INCLUDES = \
++	-DUSE_NCURSES -DINC_NCURSES \
+         -DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
+ 	-DG_LOG_DOMAIN=\"Genius\"				\
+ 	-DDATADIR=\""$(datadir)"\"				\

@@ -1,0 +1,21 @@
+diff -Nru genius-0.5.2.orig/src/Makefile.am genius-0.5.2/src/Makefile.am
+--- genius-0.5.2.orig/src/Makefile.am	Mon Feb 10 18:06:49 2003
++++ genius-0.5.2/src/Makefile.am	Wed Feb 12 10:02:00 2003
+@@ -6,7 +6,7 @@
+ plugin_includedir = $(includedir)/genius
+ 
+ #YACCFLAGS += -d -t
+-YFLAGS += -d -t
++YFLAGS = -d -t
+ 
+ INCLUDES = \
+         -DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"	\
+@@ -163,7 +163,7 @@
+ 
+ BUILT_SOURCES = parse.h parse.c lexer.c
+ 
+-CLEANFILES += $(BUILT_SOURCES)
++CLEANFILES = $(BUILT_SOURCES)
+ 
+ Desktopdir = $(datadir)/applications
+ Desktop_in_files = \
