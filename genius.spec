@@ -2,7 +2,7 @@ Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
@@ -25,6 +25,8 @@ BuildRequires:	popt-devel
 BuildRequires:	vte-devel >= 0.8.19
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,postun):	shared-mime-info
+Obsoletes:	drgenius
+Obsoletes:	drgeo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
