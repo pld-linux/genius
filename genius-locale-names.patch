@@ -1,0 +1,12 @@
+diff -urN aa/genius-0.6.0/configure.in genius-0.6.0/configure.in
+--- aa/genius-0.6.0/configure.in	2004-03-30 18:09:35.000000000 +0200
++++ genius-0.6.0/configure.in	2004-04-06 14:16:35.324149464 +0200
+@@ -40,7 +40,7 @@
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE")
+ AC_SUBST(GETTEXT_PACKAGE)
+ 
+-ALL_LINGUAS="az ca cs de el es fr ga hi hr it ko nl no pt sr sr@Latn sv pl zh_CN"
++ALL_LINGUAS="az ca cs de el es fr ga hi hr it ko nb nl pt sr sr@Latn sv pl zh_CN"
+ AM_GLIB_GNU_GETTEXT
+ 
+ dnl ===============================================================================
