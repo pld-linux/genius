@@ -29,9 +29,9 @@ infinite precision integers, complex numbers and matrixes.
 
 %description -l pl
 Genius jest zaawansowanym kalkulatorem i jêzykiem programowania
-matematycznego. Mozna go uzyæ do obliczeñ wykorzystuj±cych liczby
+matematycznego. Mo¿na go u¿yæ do obliczeñ wykorzystuj±cych liczby
 zmiennoprzecinkowe, liczby ca³kowite o nieskoñczonej precyzji, liczby
-zespolone oraz matryce.
+zespolone oraz macierze.
 
 %prep
 %setup -q
