@@ -2,7 +2,7 @@ Summary:	Genius advanced calculator
 Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
 Version:	0.4.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
@@ -15,7 +15,7 @@ BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	imlib-devel
 BuildRequires:	ncurses-devel >= 5.0
-BuildRequires:	readline-devel
+BuildRequires:	readline-devel >= 4.1
 BuildRequires:	XFree86-devel
 BuildRequires:	gettext-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
