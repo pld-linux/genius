@@ -1,7 +1,7 @@
 Summary:	Genius advanced calculator
 Name:		genius
 Version:	0.4.2
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Applications
 Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
@@ -15,6 +15,8 @@ BuildPrereq:	readline-devel
 BuildPrereq:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
+%define	_prefix	/usr/X11R6
+
 %description
 Genius is an advanced calculator and a mathematical programming language.
 It handles multiple precision floating point numbers, infinite precision
@@ -25,10 +27,7 @@ integers, complex numbers and matrixes.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--target=%{_target_platform} \
-	--host=%{_host} \
-	--prefix=/usr/X11R6 \
+%configure \
 	--enable-gnome \
 	--without-included-gettext
 make
@@ -38,29 +37,29 @@ gzip -9nf README AUTHORS NEWS TODO ChangeLog
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+make install prefix=$RPM_BUILD_ROOT/usr/X11R6 \
+	bindir=$RPM_BUILD_ROOT/%{_bindir} \
+	datadir=$RPM_BUILD_ROOT/%{_datadir}
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f genius.lang
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) /usr/X11R6/bin/*
 /usr/X11R6/share/genius
 /usr/X11R6/share/apps/Utilities/*
 
-%lang(de) /usr/X11R6/share/locale/de/LC_MESSAGES/genius.mo
-%lang(es) /usr/X11R6/share/locale/es/LC_MESSAGES/genius.mo
-%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/genius.mo
-%lang(it) /usr/X11R6/share/locale/it/LC_MESSAGES/genius.mo
-%lang(ko) /usr/X11R6/share/locale/ko/LC_MESSAGES/genius.mo
-%lang(cs) /usr/X11R6/share/locale/cs/LC_MESSAGES/genius.mo
-%lang(no) /usr/X11R6/share/locale/no/LC_MESSAGES/genius.mo
-%lang(ga) /usr/X11R6/share/locale/ga/LC_MESSAGES/genius.mo
-%lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/genius.mo
 
 %changelog
+* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [0.4.2-2]
+- spec cleanup
+- added find_lang macro
+
 * Fri May  7 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.4.1-1]
 - changed install prefix to /usr/X11R6,
