@@ -1,0 +1,16 @@
+- added using CVS keywords in %changelog (for automating them).
+
+* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [0.4.2-2]
+- spec cleanup
+- added find_lang macro
+
+* Fri May  7 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.4.1-1]
+- changed install prefix to /usr/X11R6,
+- added BuildPrereq rules,
+- added gzipping %doc,
+- removed COPYING from %doc (copyright statment is in Copyright field),
+
+* Tue Apr 20 1999 Erik Walthinsen <omega@cse.ogi.edu>
+- added spec.in file, changes to makefiles as approrpiate
