@@ -13,12 +13,14 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	gettext-devel
+BuildRequires:	gmp-devel
+BuildRequires:	gtksourceview-devel >= 0.3.0
 BuildRequires:	intltool
-BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
+BuildRequires:	libglade2-devel >= 2.0.1
+BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
-BuildRequires:	vte-devel
+BuildRequires:	vte-devel >= 0.8.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
