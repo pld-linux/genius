@@ -1,6 +1,6 @@
 Summary:	Genius advanced calculator
 Name:		genius
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 Copyright:	GPL
 Group:		X11/Applications
@@ -25,7 +25,9 @@ integers, complex numbers and matrixes.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure \
+	--target=%{_target_platrorm} \
+	--host=%{_host} \
 	--prefix=/usr/X11R6 \
 	--enable-gnome \
 	--without-included-gettext
