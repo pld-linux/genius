@@ -2,13 +2,14 @@ Summary:	Genius advanced calculator
 Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
 Version:	0.4.6
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Applications
+Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
-Patch0:		genius-applnk.patch
-Patch1:		genius-termlib.patch
+Patch0:		%{name}-applnk.patch
+Patch1:		%{name}-termlib.patch
 URL:		http://www.5z.com/jirka/genius.html
 BuildRequires:	gmp-devel
 BuildRequires:	gnome-libs-devel
@@ -42,9 +43,7 @@ zespolone oraz macierze.
 autoconf
 automake
 gettextize --copy --force
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
-LDFLAGS="-s"
-export CFLAGS LDFLAGS
+CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -I/usr/include/ncurses"
 %configure \
 	--enable-gnome \
 	--disable-static \
@@ -55,8 +54,6 @@ export CFLAGS LDFLAGS
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/genius/lib*so
 
 gzip -9nf README AUTHORS NEWS TODO ChangeLog
 
