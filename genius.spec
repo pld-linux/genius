@@ -1,22 +1,22 @@
 Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
-Version:	0.5.7.1
+Version:	0.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/genius/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	9e2954d8c3c1a9cd3cee39d25c74eb32
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	ca25680a37762182bd60d9196f3e0b66
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-termcap.patch
-Patch2:		%{name}-intltool.patch
+Patch2:		%{name}-locale-names.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gmp-devel
 BuildRequires:	gtksourceview-devel >= 0.3.0
-BuildRequires:	intltool
+BuildRequires:	intltool >= 0.21
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libtool
@@ -42,7 +42,7 @@ precyzji, liczby ca³kowite, zespolone oraz macierze.
 Summary:	genius header files
 Summary(pl):	Pliki nag³ówkowe genius
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Genius header files.
@@ -56,6 +56,8 @@ Pliki nag³ówkowe genius.
 %patch1 -p1
 %patch2 -p1
 
+mv po/{no,nb}.po
+
 %build
 rm -f missing acinclude.m4
 %{__libtoolize}
@@ -65,7 +67,10 @@ intltoolize --copy --force
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-static
+	--disable-static \
+	--enable-gtksourceview \
+	--enable-gnome
+
 %{__make}
 
 %install
