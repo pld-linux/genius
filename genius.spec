@@ -1,23 +1,27 @@
 Summary:	Genius advanced calculator
 Summary(pl):	Zaawansowany kalkulator Genius
 Name:		genius
-Version:	0.4.2
-Release:	2
+Version:	0.4.6
+Release:	1
 Copyright:	GPL
 Group:		X11/Applications
 Source:		http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
-URL:		http://www.5z.com/jirka/linux.html#genius
+Patch0:		genius-applnk.patch
+Patch1:		genius-termlib.patch
+URL:		http://www.5z.com/jirka/genius.html
 BuildRequires:	gmp-devel
 BuildRequires:	gnome-libs-devel
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	imlib-devel
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	gettext-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define		_prefix	/usr/X11R6
-%define		_mandir	/usr/X11R6
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 Genius is an advanced calculator and a mathematical programming language.
@@ -29,22 +33,30 @@ Genius jest zaawansowanym kalkulatorem i jêzykiem programowania matematycznego.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+autoconf
+automake
+gettextize --copy --force
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
+LDFLAGS="-s"
+export CFLAGS LDFLAGS
 %configure \
 	--enable-gnome \
+	--disable-static \
 	--without-included-gettext
 make
-
-gzip -9nf README AUTHORS NEWS TODO ChangeLog
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install prefix=$RPM_BUILD_ROOT/usr/X11R6 \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir}
+make install DESTDIR=$RPM_BUILD_ROOT
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/genius/lib*so
+
+gzip -9nf README AUTHORS NEWS TODO ChangeLog
 
 %find_lang %{name}
 
@@ -54,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(755,root,root) /usr/X11R6/bin/*
-/usr/X11R6/share/genius
-/usr/X11R6/share/apps/Utilities/*
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/genius/*
+%{_datadir}/genius
+%{_applnkdir}/Utilities/*
