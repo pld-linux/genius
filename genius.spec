@@ -26,7 +26,7 @@ integers, complex numbers and matrixes.
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
-	--target=%{_target_platrorm} \
+	--target=%{_target_platform} \
 	--host=%{_host} \
 	--prefix=/usr/X11R6 \
 	--enable-gnome \
