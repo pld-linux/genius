@@ -43,7 +43,7 @@ zespolone oraz macierze.
 autoconf
 automake
 gettextize --copy --force
-CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -I/usr/include/ncurses"
+CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -I/usr/include/ncurses"
 %configure \
 	--enable-gnome \
 	--disable-static \
