@@ -9,6 +9,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/genius/0.5/%{name}-%{version}.ta
 # Source0-md5:	9e2954d8c3c1a9cd3cee39d25c74eb32
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-termcap.patch
+Patch2:		%{name}-intltool.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -53,6 +54,7 @@ Pliki nag³ówkowe genius.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing acinclude.m4
