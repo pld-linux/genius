@@ -15,7 +15,8 @@ BuildPrereq:	readline-devel
 BuildPrereq:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define	_prefix	/usr/X11R6
+%define		_prefix	/usr/X11R6
+%define		_mandir	/usr/X11R6
 
 %description
 Genius is an advanced calculator and a mathematical programming language.
