@@ -46,7 +46,7 @@ make install prefix=$RPM_BUILD_ROOT/usr/X11R6 \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f genius.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) /usr/X11R6/bin/*
