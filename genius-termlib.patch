@@ -1,0 +1,16 @@
+diff -Nru genius-0.4.6/configure.in genius-0.4.6.new/configure.in
+--- genius-0.4.6/configure.in	Mon Sep  6 23:40:44 1999
++++ genius-0.4.6.new/configure.in	Wed Nov 17 03:03:37 1999
+@@ -22,9 +22,9 @@
+ 	      [  --disable-gnome         Do not try to use GNOME ],
+ 	      enable_gnome="$enableval",)
+ 
+-dnl Check for termcap
+-AC_CHECK_LIB(termcap, tgetent,[TERMCAP_LIB="-ltermcap"],
+-	     AC_MSG_ERROR(Termcap library not found))
++dnl Check for tinfo
++AC_CHECK_LIB(tinfo, tgetent,[TERMCAP_LIB="-ltinfo"],
++	     AC_MSG_ERROR(tinfo library not found))
+ AC_SUBST(TERMCAP_LIB)
+ 
+ dnl Check for readline
