@@ -2,7 +2,7 @@ Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
 Version:	0.5.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 # Source0-md5:	3e807bee409c82c38b13b81b8039c15b
@@ -35,6 +35,18 @@ euklidesowej, narzêdzie do generowania wykresów 2D/3D oraz konsolowy
 kalkulator. Kalkulator obs³uguje liczby zmiennoprzecinkowe wysokiej
 precyzji, liczby ca³kowite, zespolone oraz macierze.
 
+%package devel
+Summary:	genius header files
+Summary(pl):	Pliki nag³ówkowe genius
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+Genius header files.
+
+%description devel -l pl
+Pliki nag³ówkowe genius.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -48,7 +60,8 @@ intltoolize --copy --force
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-static	
 %{__make}
 
 %install
@@ -56,8 +69,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
+	
 %find_lang %{name} --with-gnome --all-name
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -67,8 +83,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %dir %{_libdir}/genius
-%attr(755,root,root) %{_libdir}/genius/*
-%{_includedir}/genius
-%{_libdir}/genius-readline-helper-fifo
+%attr(755,root,root) %{_libdir}/genius/libtestplugin.so.*.*.*
+%attr(755,root,root) %{_libdir}/genius-readline-helper-fifo
 %{_datadir}/genius
-%{_datadir}/applications/*.desktop
+%{_desktopdir}/*.desktop
+
+%files devel
+%defattr(644,root,root,755)
+# Do we really need this la and so files?
+%{_libdir}/genius/libtestplugin.so
+%{_libdir}/genius/libtestplugin.la
+%{_includedir}/genius
