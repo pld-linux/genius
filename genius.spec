@@ -102,7 +102,7 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/mime/{XMLnamespaces,globs,magic}
 %post
 /sbin/ldconfig
 /usr/bin/scrollkeeper-update
-update-mime-database %{_datadir}/mime
+update-mime-database %{_datadir}/mime ||:
 
 %postun
 /sbin/ldconfig
