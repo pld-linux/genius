@@ -22,9 +22,12 @@ BuildRequires:	gtksourceview-devel >= 0.3.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeui-devel >= 2.4.0
+BuildRequires:	libmpfr-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
+BuildRequires:	readline-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	vte-devel >= 0.8.19
 Requires(post,postun):	/sbin/ldconfig
