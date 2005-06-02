@@ -26,7 +26,6 @@ BuildRequires:	libmpfr-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
 BuildRequires:	readline-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	vte-devel >= 0.8.19
