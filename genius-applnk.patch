@@ -1,9 +1,0 @@
-diff -Nru genius-0.4.6/src/Makefile.am genius-0.4.6.new/src/Makefile.am
---- genius-0.4.6/src/Makefile.am	Mon Sep  6 23:36:38 1999
-+++ genius-0.4.6.new/src/Makefile.am	Wed Nov 17 02:59:33 1999
-@@ -1,4 +1,4 @@
--Utilitiesdir = $(datadir)/apps/Utilities
-+Utilitiesdir = $(datadir)/applnk/Utilities
- Librarydir = $(datadir)/genius/gel
- Plugindescdir = $(datadir)/genius/plugins
- 
