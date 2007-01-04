@@ -1,7 +1,6 @@
-diff -Nru genius-0.5.6.orig/configure.in genius-0.5.6/configure.in
---- genius-0.5.6.orig/configure.in	2003-10-16 18:57:39.000000000 +0200
-+++ genius-0.5.6/configure.in	2003-10-24 13:17:34.930462568 +0200
-@@ -49,8 +49,8 @@
+--- genius-0.7.6.1/configure.in~	2007-01-04 01:44:24.000000000 +0100
++++ genius-0.7.6.1/configure.in	2007-01-04 17:48:41.000000000 +0100
+@@ -58,8 +58,8 @@
  
  dnl Check for termcap
  AC_CHECK_LIB(termcap, tgetent,[TERMCAP_LIB="-ltermcap"],
@@ -9,6 +8,6 @@ diff -Nru genius-0.5.6.orig/configure.in genius-0.5.6/configure.in
 -                           [TERMCAP_LIB="-lncurses"
 +	     [AC_CHECK_LIB(tinfo, tgetent,
 +                           [TERMCAP_LIB="-ltinfo"
-                             AC_DEFINE(USE_NCURSES)
+                             AC_DEFINE(USE_NCURSES,[1], [Use ncurses library])
                              AC_CHECK_HEADER(ncurses/curses.h, [
- 					    AC_DEFINE(INC_NCURSES)])], [
+ 					    AC_DEFINE(INC_NCURSES,[1],[ncurses include])])], [
