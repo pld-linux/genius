@@ -9,7 +9,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.t
 # Source0-md5:	35f3711ab30575474035b1bb99e08f5a
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
-URL:		http://www.jirka.org/genius.html
+URL:		http://www.jirka.org/genius.html/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
