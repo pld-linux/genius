@@ -1,17 +1,15 @@
 Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
-Version:	0.7.2
-Release:	4
-License:	GPL
+Version:	0.7.6.1
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	69944ec93ad62cc4c3dc4ba35d4c2944
-Patch0:		%{name}-am.patch
-Patch1:		%{name}-termcap.patch
-Patch2:		%{name}-locale-names.patch
-Patch3:		%{name}-desktop.patch
-Patch4:		%{name}-term_mpfr_fix.patch
+# Source0-md5:	35f3711ab30575474035b1bb99e08f5a
+Patch0:		%{name}-termcap.patch
+Patch1:		%{name}-desktop.patch
+URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -22,7 +20,7 @@ BuildRequires:	gtksourceview-devel >= 0.3.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libmpfr-devel
+BuildRequires:	libmpfr-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
@@ -66,11 +64,6 @@ Pliki nag³ówkowe genius.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-
-mv po/{no,nb}.po
 
 %build
 rm -f missing acinclude.m4
@@ -81,6 +74,7 @@ glib-gettextize --copy --force
 intltoolize --copy --force
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-static \
@@ -116,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %dir %{_libdir}/genius
 %attr(755,root,root) %{_libdir}/genius/libtestplugin.so.*.*.*
