@@ -1,12 +1,13 @@
-diff -urN genius-0.7.1.orig/src/gnome-genius.desktop.in genius-0.7.1/src/gnome-genius.desktop.in
---- genius-0.7.1.orig/src/gnome-genius.desktop.in	2004-11-30 21:24:23.058590960 +0100
-+++ genius-0.7.1/src/gnome-genius.desktop.in	2004-11-30 21:25:39.532965088 +0100
-@@ -4,7 +4,7 @@
+--- genius-0.7.6.1/src/gnome-genius.desktop.in~	2004-08-20 19:31:51.000000000 +0200
++++ genius-0.7.6.1/src/gnome-genius.desktop.in	2007-01-04 17:57:41.000000000 +0100
+@@ -4,7 +4,9 @@
  Exec=gnome-genius
- Icon=gnome-calc2.png
+ Icon=gnome-genius
  Terminal=false
 -Categories=Application;GNOME;Scientific;Math;Office;
 +Categories=GTK;GNOME;Education;Science;Math;
  Mime-Type=text/x-genius;
  _Name=Genius Math Tool
  _Comment=Genius Mathematical Tool and Calculator
++_Commnet[pl]=Narzędzie i kalkulator matematyczny Genius
++# vi: encoding=utf-8
