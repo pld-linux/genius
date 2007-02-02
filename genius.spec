@@ -1,12 +1,12 @@
 Summary:	General tool for mathematics
 Summary(pl):	Rozbudowane narzêdzie matematyczne
 Name:		genius
-Version:	0.7.6.1
+Version:	0.7.7
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/genius/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	35f3711ab30575474035b1bb99e08f5a
+# Source0-md5:	8c8bfdfb17e6e54eba283e813cfddeca
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.jirka.org/genius.html
@@ -110,7 +110,6 @@ update-mime-database %{_datadir}/mime
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %dir %{_libdir}/genius
-%attr(755,root,root) %{_libdir}/genius/libtestplugin.so.*
 %attr(755,root,root) %{_libdir}/genius-readline-helper-fifo
 %{_datadir}/genius
 %{_datadir}/application-registry/*
