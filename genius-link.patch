@@ -1,0 +1,12 @@
+diff -urN genius-0.7.7/ve/Makefile.am genius-0.7.7.new/ve/Makefile.am
+--- genius-0.7.7/ve/Makefile.am	2007-01-20 06:26:11.000000000 +0100
++++ genius-0.7.7.new/ve/Makefile.am	2007-02-07 17:32:22.000000000 +0100
+@@ -47,6 +47,6 @@
+ test_ve_config_LDADD = \
+ 	$(VICIOUS_LIBS)				\
+ 	$(INTLLIBS)				\
+-	$(GLIB_LIBS)				\
+ 	-L$(top_builddir)/ve			\
+-	-lvicious
++	-lvicious				\
++	$(GLIB_LIBS)
