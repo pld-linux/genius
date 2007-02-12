@@ -1,5 +1,5 @@
 Summary:	General tool for mathematics
-Summary(pl):	Rozbudowane narz阣zie matematyczne
+Summary(pl.UTF-8):   Rozbudowane narz臋dzie matematyczne
 Name:		genius
 Version:	0.7.7
 Release:	2
@@ -44,24 +44,24 @@ programming language and evaluator, an euclidian geometry tool, a
 calculator handles multiple precision floating point numbers, infinite
 precision integers, complex numbers and matrixes.
 
-%description -l pl
-Genius to narz阣zie do rozwi眤ywania problem體 matematycznych.
-Zawiera ono matematyczny j陑yk programowania, narz阣zie do geometrii
-euklidesowej, narz阣zie do generowania wykres體 2D/3D oraz konsolowy
-kalkulator. Kalkulator obs硊guje liczby zmiennoprzecinkowe wysokiej
-precyzji, liczby ca砶owite, zespolone oraz macierze.
+%description -l pl.UTF-8
+Genius to narz臋dzie do rozwi膮zywania problem贸w matematycznych.
+Zawiera ono matematyczny j臋zyk programowania, narz臋dzie do geometrii
+euklidesowej, narz臋dzie do generowania wykres贸w 2D/3D oraz konsolowy
+kalkulator. Kalkulator obs艂uguje liczby zmiennoprzecinkowe wysokiej
+precyzji, liczby ca艂kowite, zespolone oraz macierze.
 
 %package devel
 Summary:	genius header files
-Summary(pl):	Pliki nag丑wkowe genius
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe genius
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Genius header files.
 
-%description devel -l pl
-Pliki nag丑wkowe genius.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe genius.
 
 %prep
 %setup -q
