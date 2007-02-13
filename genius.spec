@@ -1,5 +1,5 @@
 Summary:	General tool for mathematics
-Summary(pl.UTF-8):   Rozbudowane narzędzie matematyczne
+Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
 Version:	0.7.7
 Release:	2
@@ -53,7 +53,7 @@ precyzji, liczby całkowite, zespolone oraz macierze.
 
 %package devel
 Summary:	genius header files
-Summary(pl.UTF-8):   Pliki nagłówkowe genius
+Summary(pl.UTF-8):	Pliki nagłówkowe genius
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
