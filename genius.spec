@@ -2,7 +2,7 @@ Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
@@ -35,6 +35,8 @@ Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Obsoletes:	drgenius
 Obsoletes:	drgeo
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -100,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/mime/text
 # Obsoleted GNOME mime-info stuff
 rm -rf $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --with-gnome --all-name
 
 %clean
