@@ -1,12 +1,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.0
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
-# Source0-md5:	8c17ac90dab4f586e07627b6148c39b6
+# Source0-md5:	a043f2cb20975034100ce5964fe5c9de
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-link.patch
@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	sed >= 4.0
 BuildRequires:	vte-devel >= 0.8.19
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
@@ -70,6 +71,7 @@ Pliki nagłówkowe genius.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
 
 %build
 rm -f missing acinclude.m4
