@@ -1,13 +1,12 @@
---- genius-0.7.6.1/src/gnome-genius.desktop.in~	2004-08-20 19:31:51.000000000 +0200
-+++ genius-0.7.6.1/src/gnome-genius.desktop.in	2007-01-04 17:57:41.000000000 +0100
-@@ -4,7 +4,9 @@
+--- genius-1.0.1/src/gnome-genius.desktop.in~	2007-10-16 18:02:23.000000000 +0200
++++ genius-1.0.1/src/gnome-genius.desktop.in	2007-11-17 12:53:50.000000000 +0100
+@@ -4,7 +4,8 @@
  Exec=gnome-genius
  Icon=gnome-genius
  Terminal=false
--Categories=Application;GNOME;Scientific;Math;Office;
+-Categories=Application;GNOME;Science;Math;Education;Calculator;Utility;
 +Categories=GTK;GNOME;Education;Science;Math;
  Mime-Type=text/x-genius;
  _Name=Genius Math Tool
  _Comment=Genius Mathematical Tool and Calculator
-+_Commnet[pl]=Narzędzie i kalkulator matematyczny Genius
 +# vi: encoding=utf-8
