@@ -26,6 +26,8 @@ BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
+# support for --with-omf in find-lang.sh
+BuildRequires:	rpm-build >= 4.4.9-10
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
@@ -71,11 +73,14 @@ Pliki nagłówkowe genius.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+
+%{__sed} -i -e s#sr\@Latn#sr\@latin# configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
+mv po/sr\@{Latn,latin}.po
 
 %build
 rm -f missing acinclude.m4
-gnome-doc-common
+%{__gnome_doc_common}
 cp xmldocs.make help
 %{__libtoolize}
 %{__glib_gettextize}
@@ -104,9 +109,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/mime/text
 # Obsoleted GNOME mime-info stuff
 rm -rf $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -132,7 +135,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/genius.xml
 %{_desktopdir}/gnome-genius.desktop
 %{_iconsdir}/hicolor/*/apps/gnome-genius.png
-%{_omf_dest_dir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
