@@ -1,15 +1,14 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications
-Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
-# Source0-md5:	a043f2cb20975034100ce5964fe5c9de
+Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
+# Source0-md5:	7c948e3426c4aaaa9bac8267094ce53d
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-link.patch
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -72,7 +71,6 @@ Pliki nagłówkowe genius.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %{__sed} -i -e s#sr\@Latn#sr\@latin# configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
@@ -94,7 +92,7 @@ cp xmldocs.make help
 	--enable-gtksourceview \
 	--enable-gnome
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
