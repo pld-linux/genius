@@ -25,8 +25,7 @@ BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
-# support for --with-omf in find-lang.sh
-BuildRequires:	rpm-build >= 4.4.9-10
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
@@ -72,12 +71,12 @@ Pliki nagłówkowe genius.
 %patch0 -p1
 %patch1 -p1
 
-%{__sed} -i -e s#sr\@Latn#sr\@latin# configure.in
+%{__sed} -i -e 's#sr\@Latn#sr\@latin#' configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
 mv po/sr\@{Latn,latin}.po
 
 %build
-rm -f missing acinclude.m4
+rm -f acinclude.m4
 %{__gnome_doc_common}
 cp xmldocs.make help
 %{__libtoolize}
