@@ -1,12 +1,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
-# Source0-md5:	7c948e3426c4aaaa9bac8267094ce53d
+# Source0-md5:	9500bf293016de90aff838a3ae31339f
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.jirka.org/genius.html
