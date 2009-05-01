@@ -1,3 +1,4 @@
+# TODO: where is "euclidian geometry tool"? Maybe drgeo-obsolotes is false
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
