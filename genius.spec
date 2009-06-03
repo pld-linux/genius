@@ -3,7 +3,7 @@ Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		X11/Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
@@ -94,7 +94,7 @@ cp xmldocs.make help
 	--enable-gnome \
 	--disable-update-mimedb
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -134,7 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/genius
 %{_datadir}/mime/packages/genius.xml
 %{_desktopdir}/gnome-genius.desktop
-%{_iconsdir}/hicolor/*/apps/gnome-genius.png
+%{_iconsdir}/hicolor/*/apps/*.png
 
 %files devel
 %defattr(644,root,root,755)
