@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.7
+Version:	1.0.8
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Math
-Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.gz
-# Source0-md5:	ac84575bc3c3ade32477d87901465d96
+Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
+# Source0-md5:	f88749fdb3cc3d49297c8a9074ece596
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.jirka.org/genius.html
@@ -17,10 +17,10 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gmp-devel
 BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gtksourceview-devel >= 0.3.0
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtksourceview2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	mpfr-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
