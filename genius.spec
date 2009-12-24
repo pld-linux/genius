@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.8
+Version:	1.0.9
 Release:	1
 License:	GPL v3+
-Group:		X11/Applications/Math
+Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
-# Source0-md5:	f88749fdb3cc3d49297c8a9074ece596
+# Source0-md5:	2e6a0b663eb73346318a9e3c52957403
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.jirka.org/genius.html
@@ -22,8 +22,8 @@ BuildRequires:	gnome-vfs2-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtksourceview2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
-BuildRequires:	mpfr-devel >= 2.2.0
 BuildRequires:	libtool
+BuildRequires:	mpfr-devel >= 2.2.0
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
@@ -51,8 +51,8 @@ calculator handles multiple precision floating point numbers, infinite
 precision integers, complex numbers and matrixes.
 
 %description -l pl.UTF-8
-Genius to narzędzie do rozwiązywania problemów matematycznych.
-Zawiera ono matematyczny język programowania, narzędzie do geometrii
+Genius to narzędzie do rozwiązywania problemów matematycznych. Zawiera
+ono matematyczny język programowania, narzędzie do geometrii
 euklidesowej, narzędzie do generowania wykresów 2D/3D oraz konsolowy
 kalkulator. Kalkulator obsługuje liczby zmiennoprzecinkowe wysokiej
 precyzji, liczby całkowite, zespolone oraz macierze.
@@ -105,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # Obsoleted GNOME mime-info stuff
 rm -rf $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
-
 rm -f $RPM_BUILD_ROOT%{_libdir}/genius/libtestplugin.{so,la}
 
 %find_lang %{name} --with-gnome --with-omf --all-name
