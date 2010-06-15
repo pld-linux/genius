@@ -3,7 +3,7 @@ Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
 Version:	1.0.9
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
