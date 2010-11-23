@@ -2,15 +2,14 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.11
+Version:	1.0.12
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
-# Source0-md5:	7f4fdc29237c9f68a7b2b139b7788968
+# Source0-md5:	12936d03d0d8f41ca747269d144632b2
 Patch0:		%{name}-termcap.patch
 Patch1:		%{name}-desktop.patch
-Patch2:		%{name}-separator.patch
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -74,7 +73,6 @@ Pliki nagłówkowe genius.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %{__sed} -i -e 's#sr\@Latn#sr\@latin#' configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
@@ -106,8 +104,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # Obsoleted GNOME mime-info stuff
-rm -rf $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
-rm -f $RPM_BUILD_ROOT%{_libdir}/genius/libtestplugin.{so,la}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/genius/libtestplugin.{so,la}
 
 %find_lang %{name} --with-gnome --with-omf --all-name
 
