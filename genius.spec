@@ -3,7 +3,7 @@ Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
 Version:	1.0.12
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.bz2
@@ -33,7 +33,7 @@ BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
 BuildRequires:	vte-devel >= 0.8.19
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
