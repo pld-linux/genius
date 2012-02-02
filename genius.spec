@@ -8,8 +8,7 @@ License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.xz
 # Source0-md5:	6b4dd6a7b7ad893e76c8653e332e8ad6
-Patch0:		%{name}-termcap.patch
-Patch1:		%{name}-desktop.patch
+Patch0:		%{name}-desktop.patch
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -74,7 +73,6 @@ Pliki nagłówkowe genius.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %{__sed} -i -e 's#sr\@Latn#sr\@latin#' configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
