@@ -14,7 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gmp-devel
 BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtk+2-devel >= 2:2.18.0
