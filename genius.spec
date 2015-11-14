@@ -1,21 +1,21 @@
-# TODO: where is "euclidian geometry tool"? Maybe drgeo-obsolotes is false
+# TODO: where is "euclidian geometry tool"? Maybe drgeo-obsoletes is false
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.16
+Version:	1.0.20
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.xz
-# Source0-md5:	2bd84b1c1ec3232c67e901b7d69f5698
-Patch0:		%{name}-desktop.patch
+# Source0-md5:	5837938aa68ad4f332adc7983be071f3
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-tools
-BuildRequires:	gmp-devel
+BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gmp-devel >= 2.3.0
 BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtksourceview2-devel >= 2.0.2
@@ -37,6 +37,12 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
+Requires:	glib2 >= 1:2.16.0
+Requires:	gmp >= 2.3.0
+Requires:	gtk+2 >= 2:2.18.0
+Requires:	gtksourceview2 >= 2.0.2
+Requires:	mpfr >= 2.2.0
+Requires:	vte0 >= 0.17.1
 Obsoletes:	drgenius
 Obsoletes:	drgeo
 # sr@Latn vs. sr@latin
@@ -62,6 +68,9 @@ Summary:	genius header files
 Summary(pl.UTF-8):	Pliki nagłówkowe genius
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	glib2-devel >= 1:2.16.0
+Requires:	gmp-devel >= 2.3.0
+Requires:	mpfr-devel >= 2.2.0
 
 %description devel
 Genius header files.
@@ -71,16 +80,15 @@ Pliki nagłówkowe genius.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %{__sed} -i -e 's#sr\@Latn#sr\@latin#' configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
-mv po/sr\@{Latn,latin}.po
+%{__mv} po/sr\@{Latn,latin}.po
 
 %build
-rm -f acinclude.m4
-%{__gnome_doc_common}
-cp xmldocs.make help
+%{__rm} acinclude.m4
+#%{__gnome_doc_common}
+#cp xmldocs.make help
 %{__libtoolize}
 %{__glib_gettextize}
 %{__intltoolize}
@@ -92,6 +100,7 @@ cp xmldocs.make help
 	--disable-static \
 	--enable-gtksourceview \
 	--enable-gnome \
+	--disable-scrollkeeper \
 	--disable-update-mimedb
 
 %{__make} -j1
@@ -133,7 +142,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/genius
 %{_datadir}/mime/packages/genius.xml
 %{_desktopdir}/gnome-genius.desktop
-%{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/*x*/apps/genius-stock-plot.png
+%{_iconsdir}/hicolor/*x*/apps/gnome-genius.png
+%{_iconsdir}/hicolor/scalable/apps/gnome-genius.svg
 
 %files devel
 %defattr(644,root,root,755)
