@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.20
+Version:	1.0.21
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.xz
-# Source0-md5:	5837938aa68ad4f332adc7983be071f3
+# Source0-md5:	ea42d33cc752fcbb29a3df7d6e2a0e7f
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -21,7 +21,7 @@ BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtksourceview2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libtool
-BuildRequires:	mpfr-devel >= 2.2.0
+BuildRequires:	mpfr-devel >= 2.3.0
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
@@ -41,7 +41,7 @@ Requires:	glib2 >= 1:2.16.0
 Requires:	gmp >= 2.3.0
 Requires:	gtk+2 >= 2:2.18.0
 Requires:	gtksourceview2 >= 2.0.2
-Requires:	mpfr >= 2.2.0
+Requires:	mpfr >= 2.3.0
 Requires:	vte0 >= 0.17.1
 Obsoletes:	drgenius
 Obsoletes:	drgeo
@@ -70,7 +70,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.16.0
 Requires:	gmp-devel >= 2.3.0
-Requires:	mpfr-devel >= 2.2.0
+Requires:	mpfr-devel >= 2.3.0
 
 %description devel
 Genius header files.
@@ -81,9 +81,7 @@ Pliki nagłówkowe genius.
 %prep
 %setup -q
 
-%{__sed} -i -e 's#sr\@Latn#sr\@latin#' configure.in
 %{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
-%{__mv} po/sr\@{Latn,latin}.po
 
 %build
 %{__rm} acinclude.m4
