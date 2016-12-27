@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.21
-Release:	2
+Version:	1.0.22
+Release:	1
 License:	GPL v3+
 Group:		Applications/Math
-Source0:	http://ftp.5z.com/pub/genius/%{name}-%{version}.tar.xz
-# Source0-md5:	ea42d33cc752fcbb29a3df7d6e2a0e7f
+Source0:	ftp://ftp.gnome.org/pub/gnome/sources/genius/1.0/%{name}-%{version}.tar.xz
+# Source0-md5:	9fc1dae4cb9a54d36df4981dd75248ae
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,7 +30,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vte0-devel >= 0.17.1
+BuildRequires:	vte0-devel >= 0.26.0
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
@@ -42,7 +42,7 @@ Requires:	gmp >= 2.3.0
 Requires:	gtk+2 >= 2:2.18.0
 Requires:	gtksourceview2 >= 2.0.2
 Requires:	mpfr >= 2.3.0
-Requires:	vte0 >= 0.17.1
+Requires:	vte0 >= 0.26.0
 Obsoletes:	drgenius
 Obsoletes:	drgeo
 # sr@Latn vs. sr@latin
@@ -81,7 +81,7 @@ Pliki nagłówkowe genius.
 %prep
 %setup -q
 
-%{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.in
+%{__sed} -i 's@AM_BINRELOC@#AM_BINRELOC@' configure.ac
 
 %build
 %{__rm} acinclude.m4
