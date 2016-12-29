@@ -9,7 +9,7 @@ Group:		Applications/Math
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/genius/1.0/%{name}-%{version}.tar.xz
 # Source0-md5:	9fc1dae4cb9a54d36df4981dd75248ae
 URL:		http://www.jirka.org/genius.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
