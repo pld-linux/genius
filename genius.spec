@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.22
+Version:	1.0.23
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/genius/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	9fc1dae4cb9a54d36df4981dd75248ae
+# Source0-md5:	7fa8a2850b3245acd1b1d6514f2eb9e1
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -16,7 +16,6 @@ BuildRequires:	flex
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gmp-devel >= 2.3.0
-BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gtk+2-devel >= 2:2.18.0
 BuildRequires:	gtksourceview2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
@@ -27,7 +26,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vte0-devel >= 0.26.0
@@ -35,7 +33,6 @@ BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires(post,postun):	scrollkeeper
 Requires(post,postun):	shared-mime-info
 Requires:	glib2 >= 1:2.16.0
 Requires:	gmp >= 2.3.0
@@ -85,8 +82,6 @@ Pliki nagłówkowe genius.
 
 %build
 %{__rm} acinclude.m4
-#%{__gnome_doc_common}
-#cp xmldocs.make help
 %{__libtoolize}
 %{__glib_gettextize}
 %{__intltoolize}
@@ -98,7 +93,6 @@ Pliki nagłówkowe genius.
 	--disable-static \
 	--enable-gtksourceview \
 	--enable-gnome \
-	--disable-scrollkeeper \
 	--disable-update-mimedb
 
 %{__make} -j1
@@ -113,20 +107,18 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/{application-registry,mime-info}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/genius/libtestplugin.{so,la}
 
-%find_lang %{name} --with-gnome --with-omf --all-name
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%scrollkeeper_update_post
 %update_desktop_database_post
 %update_mime_database
 %update_icon_cache hicolor
 
 %postun
 %update_icon_cache hicolor
-%scrollkeeper_update_postun
 %update_desktop_database_postun
 %update_mime_database
 
@@ -137,7 +129,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-genius
 %dir %{_libdir}/genius
 %attr(755,root,root) %{_libdir}/genius-readline-helper-fifo
-%{_datadir}/genius
+%dir %{_datadir}/genius
+%{_datadir}/genius/examples
+%{_datadir}/genius/gel
+%{_datadir}/genius/genius-graph.png
+%{_datadir}/genius/genius.txt
+%{_datadir}/genius/gtksourceview
+%dir %{_datadir}/genius/help
+%{_datadir}/genius/help/C
+%lang(cs) %{_datadir}/genius/help/cs
+%lang(de) %{_datadir}/genius/help/de
+%lang(el) %{_datadir}/genius/help/el
+%lang(es) %{_datadir}/genius/help/es
+%lang(fr) %{_datadir}/genius/help/fr
+%lang(pt_BR) %{_datadir}/genius/help/pt_BR
+%lang(ru) %{_datadir}/genius/help/ru
+%lang(sv) %{_datadir}/genius/help/sv
+%{_datadir}/genius/plugins
 %{_datadir}/mime/packages/genius.xml
 %{_desktopdir}/gnome-genius.desktop
 %{_iconsdir}/hicolor/*x*/apps/genius-stock-plot.png
