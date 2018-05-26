@@ -2,21 +2,21 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.23
+Version:	1.0.24
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	ftp://ftp.gnome.org/pub/gnome/sources/genius/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	7fa8a2850b3245acd1b1d6514f2eb9e1
+# Source0-md5:	471a0b3f019b6fcaf56ae0f4e2580917
 URL:		http://www.jirka.org/genius.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gmp-devel >= 2.3.0
-BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	gtksourceview2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libtool
@@ -28,18 +28,16 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	vte0-devel >= 0.26.0
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
-Requires:	glib2 >= 1:2.16.0
+Requires:	glib2 >= 1:2.26.0
 Requires:	gmp >= 2.3.0
-Requires:	gtk+2 >= 2:2.18.0
+Requires:	gtk+2 >= 2:2.20.0
 Requires:	gtksourceview2 >= 2.0.2
 Requires:	mpfr >= 2.3.0
-Requires:	vte0 >= 0.26.0
 Obsoletes:	drgenius
 Obsoletes:	drgeo
 # sr@Latn vs. sr@latin
@@ -65,7 +63,7 @@ Summary:	genius header files
 Summary(pl.UTF-8):	Pliki nagłówkowe genius
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.16.0
+Requires:	glib2-devel >= 1:2.26.0
 Requires:	gmp-devel >= 2.3.0
 Requires:	mpfr-devel >= 2.3.0
 
@@ -128,13 +126,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/genius
 %attr(755,root,root) %{_bindir}/gnome-genius
 %dir %{_libdir}/genius
-%attr(755,root,root) %{_libdir}/genius-readline-helper-fifo
+%attr(755,root,root) %{_libexecdir}/genius-readline-helper-fifo
 %dir %{_datadir}/genius
 %{_datadir}/genius/examples
 %{_datadir}/genius/gel
 %{_datadir}/genius/genius-graph.png
 %{_datadir}/genius/genius.txt
 %{_datadir}/genius/gtksourceview
+%{_datadir}/genius/xterm
 %dir %{_datadir}/genius/help
 %{_datadir}/genius/help/C
 %lang(cs) %{_datadir}/genius/help/cs
