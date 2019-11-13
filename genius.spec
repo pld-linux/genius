@@ -6,9 +6,9 @@ Version:	1.0.24
 Release:	3
 License:	GPL v3+
 Group:		Applications/Math
-Source0:	ftp://ftp.gnome.org/pub/gnome/sources/genius/1.0/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/genius/1.0/%{name}-%{version}.tar.xz
 # Source0-md5:	471a0b3f019b6fcaf56ae0f4e2580917
-URL:		http://www.jirka.org/genius.html
+URL:		https://www.jirka.org/genius.html
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
@@ -22,6 +22,7 @@ BuildRequires:	intltool >= 0.21
 BuildRequires:	libtool
 BuildRequires:	mpfr-devel >= 2.3.0
 BuildRequires:	ncurses-devel
+BuildRequires:	pango-devel >= 1:1.22.0
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -38,10 +39,9 @@ Requires:	gmp >= 2.3.0
 Requires:	gtk+2 >= 2:2.20.0
 Requires:	gtksourceview2 >= 2.0.2
 Requires:	mpfr >= 2.3.0
+Requires:	pango >= 1:1.22.0
 Obsoletes:	drgenius
 Obsoletes:	drgeo
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -88,6 +88,7 @@ Pliki nagłówkowe genius.
 %{__autoheader}
 %{__automake}
 %configure \
+	ac_cv_lib_termcap_tgetent=no \
 	--disable-static \
 	--enable-gtksourceview \
 	--enable-gnome \
