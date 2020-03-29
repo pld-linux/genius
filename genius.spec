@@ -2,22 +2,23 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.24
-Release:	3
+Version:	1.0.25
+Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/genius/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	471a0b3f019b6fcaf56ae0f4e2580917
+# Source0-md5:	df24f0fd3fc2af12f8dfb817e98a631b
 URL:		https://www.jirka.org/genius.html
+BuildRequires:	amtk-devel >= 5.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.41.1
 BuildRequires:	gmp-devel >= 2.3.0
-BuildRequires:	gtk+2-devel >= 2:2.20.0
-BuildRequires:	gtksourceview2-devel >= 2.0.2
+BuildRequires:	gtk+3-devel >= 3.21.4
+BuildRequires:	gtksourceview4-devel >= 4.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libtool
 BuildRequires:	mpfr-devel >= 2.3.0
@@ -34,10 +35,11 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
-Requires:	glib2 >= 1:2.26.0
+Requires:	amtk >= 5.0
+Requires:	glib2 >= 1:2.41.1
 Requires:	gmp >= 2.3.0
-Requires:	gtk+2 >= 2:2.20.0
-Requires:	gtksourceview2 >= 2.0.2
+Requires:	gtk+3 >= 3.21.4
+Requires:	gtksourceview4 >= 4.0
 Requires:	mpfr >= 2.3.0
 Requires:	pango >= 1:1.22.0
 Obsoletes:	drgenius
@@ -63,7 +65,7 @@ Summary:	genius header files
 Summary(pl.UTF-8):	Pliki nagłówkowe genius
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.26.0
+Requires:	glib2-devel >= 1:2.41.1
 Requires:	gmp-devel >= 2.3.0
 Requires:	mpfr-devel >= 2.3.0
 
@@ -90,8 +92,6 @@ Pliki nagłówkowe genius.
 %configure \
 	ac_cv_lib_termcap_tgetent=no \
 	--disable-static \
-	--enable-gtksourceview \
-	--enable-gnome \
 	--disable-update-mimedb
 
 %{__make} -j1
@@ -134,7 +134,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/genius/genius-graph.png
 %{_datadir}/genius/genius.txt
 %{_datadir}/genius/gtksourceview
-%{_datadir}/genius/xterm
 %dir %{_datadir}/genius/help
 %{_datadir}/genius/help/C
 %lang(cs) %{_datadir}/genius/help/cs
