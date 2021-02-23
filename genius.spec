@@ -2,12 +2,12 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.25
+Version:	1.0.26
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/genius/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	df24f0fd3fc2af12f8dfb817e98a631b
+Source0:	https://download.gnome.org/sources/genius/1.0/%{name}-%{version}.tar.xz
+# Source0-md5:	1a9afb7e70a8e0be752dbe40a3f510f4
 URL:		https://www.jirka.org/genius.html
 BuildRequires:	amtk-devel >= 5.0
 BuildRequires:	autoconf >= 2.50
