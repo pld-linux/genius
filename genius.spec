@@ -2,14 +2,13 @@
 Summary:	General tool for mathematics
 Summary(pl.UTF-8):	Rozbudowane narzędzie matematyczne
 Name:		genius
-Version:	1.0.26
+Version:	1.0.27
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	https://download.gnome.org/sources/genius/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	1a9afb7e70a8e0be752dbe40a3f510f4
+# Source0-md5:	d510beed59c2b9ad52a56153e5825fb8
 URL:		https://www.jirka.org/genius.html
-BuildRequires:	amtk-devel >= 5.0
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	bison
@@ -30,20 +29,21 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	vte-devel >= 0.50.0
 BuildRequires:	xz >= 1:4.999.7
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
-Requires:	amtk >= 5.0
 Requires:	glib2 >= 1:2.41.1
 Requires:	gmp >= 2.3.0
 Requires:	gtk+3 >= 3.21.4
 Requires:	gtksourceview4 >= 4.0
 Requires:	mpfr >= 2.3.0
 Requires:	pango >= 1:1.22.0
-Obsoletes:	drgenius
-Obsoletes:	drgeo
+Requires:	vte >= 0.50.0
+Obsoletes:	drgenius < 0.6
+Obsoletes:	drgeo < 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
